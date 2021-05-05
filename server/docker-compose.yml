@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  #   app:
+  #     image: your_dockerhub_user/rails-kubernetes
+  #     depends_on:
+  #       - database
+  #       - redis
+  #     ports:
+  #       - "3000:3000"
+  #     env_file: .env
+  #     environment:
+  #       RAILS_ENV: development
+  database:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  redis:
+    restart: always
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  admin-panel-backend:
