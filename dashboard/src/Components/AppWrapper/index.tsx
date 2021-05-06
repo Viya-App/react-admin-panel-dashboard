@@ -120,7 +120,7 @@ const AppWrapper: React.FC = ({ children }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            Admin Panel Creator
           </Typography>
         </Toolbar>
       </AppBar>
