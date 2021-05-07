@@ -13,3 +13,5 @@ const store = createStore(reducer, applyMiddleware(sagaMiddleware));
 sagaMiddleware.run(mySaga);
 
 // render the application
+
+export default store;
