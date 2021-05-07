@@ -1,5 +1,9 @@
 import { app, port } from "./App";
 import Database from "./Database";
+import "./Database/TableBuilder";
+import "./Database/Get";
+import "./Database/Post";
+import "./Database/TableBuilder";
 import "./Storage";
 
 app.get("/", (req, res) => {

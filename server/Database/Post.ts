@@ -13,21 +13,22 @@ type userQueryParams = {
 
 app.post(
   "/api/create-row",
-  (req: Request<{}, {}, {}, userQueryParams>, res) => {
+  (req: Request<{}, {}, userQueryParams, {}>, res) => {
     try {
-      const { collectionName, data } = JSON.parse(req.body);
-      const table = Database.from(collectionName);
+      const data: userQueryParams = req.body;
+      const table = Database(data.collectionName);
 
-      if (Array.isArray(data)) {
-      } else if (isObject(data)) {
-        table.insert(data);
+      if (Array.isArray(data.data)) {
+      } else if (isObject(data.data)) {
+        table.insert(data).returning("*");
+        table
+          .then((d) => res.status(200).json({ status: true, d }))
+          .catch((error) => res.status(400).json({ error }));
       } else {
-        res
-          .status(400)
-          .json({
-            error:
-              "Eklenmek istenene veri türü geçersiz. Lütfen Object veya Object Array Gönderin",
-          });
+        res.status(400).json({
+          error:
+            "Eklenmek istenene veri türü geçersiz. Lütfen Object veya Object Array Gönderin",
+        });
       }
     } catch (error) {
       res.status(400).json({ error, status: false });

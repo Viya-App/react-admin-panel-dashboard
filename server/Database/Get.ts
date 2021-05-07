@@ -23,7 +23,7 @@ type userQueryParams = {
   // collectionName in column scope
   joinScope?: string;
   //target => table Name || scope => column name
-  join?: { types: joinTypes; target: string; scope: string };
+  join?: { types: joinTypes; target: string; scope: string }[];
   offset: number;
   limit: number;
 };
@@ -50,12 +50,14 @@ app.get("/api/find", (req: Request<{}, {}, {}, userQueryParams>, res) => {
 
     // Join Rules
 
-    if (isObject(join)) {
-      table[join.types](
-        join.target,
-        `${collectionName}.${joinScope}`,
-        "=",
-        `${join.target}.scope`
+    if (Array.isArray(join)) {
+      join.forEach((j) =>
+        table[j.types](
+          j.target,
+          `${collectionName}.${joinScope}`,
+          "=",
+          `${j.target}.scope`
+        )
       );
     }
 
