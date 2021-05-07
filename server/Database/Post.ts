@@ -15,12 +15,14 @@ app.post(
   "/api/create-row",
   (req: Request<{}, {}, userQueryParams, {}>, res) => {
     try {
-      const { collectionName, data } = req.body;
-      const table = Database.from(collectionName);
+      const data: userQueryParams = req.body;
 
-      if (Array.isArray(data)) {
-      } else if (isObject(data)) {
-        table.insert(data);
+      if (Array.isArray(data.data) || isObject(data.data)) {
+        Database(data.collectionName)
+          .insert(data.data)
+          .returning("*")
+          .then((d) => res.status(200).json({ status: true, data: d }))
+          .catch((error) => res.status(400).json({ error }));
       } else {
         res.status(400).json({
           error:

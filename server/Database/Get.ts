@@ -23,13 +23,14 @@ type userQueryParams = {
   // collectionName in column scope
   joinScope?: string;
   //target => table Name || scope => column name
-  join?: { types: joinTypes; target: string; scope: string };
+  join?: { types: joinTypes; target: string; scope: string }[];
   offset: number;
   limit: number;
 };
 
 app.get("/api/find", (req: Request<{}, {}, {}, userQueryParams>, res) => {
   try {
+    console.log(`req.query`, req.query);
     const {
       collectionName,
       select = "*",
@@ -50,12 +51,14 @@ app.get("/api/find", (req: Request<{}, {}, {}, userQueryParams>, res) => {
 
     // Join Rules
 
-    if (isObject(join)) {
-      table[join.types](
-        join.target,
-        `${collectionName}.${joinScope}`,
-        "=",
-        `${join.target}.scope`
+    if (Array.isArray(join)) {
+      join.forEach((j) =>
+        table[j.types](
+          j.target,
+          `${collectionName}.${joinScope}`,
+          "=",
+          `${j.target}.scope`
+        )
       );
     }
 
@@ -81,6 +84,7 @@ app.get("/api/find", (req: Request<{}, {}, {}, userQueryParams>, res) => {
       .then((data) => res.status(200).json(data))
       .catch((error) => response.status(400).json({ error }));
   } catch (error) {
+    console.error(error);
     res.status(400).json({ error, status: false });
   }
 });
