@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme: Theme) =>
       whiteSpace: "nowrap",
       boxSizing: "border-box",
       willChange: "width",
-      transition: "width 200ms linear",
+      "& > div": { transition: "width 200ms linear" },
     },
     drawerOpen: {
       width: drawerWidth,

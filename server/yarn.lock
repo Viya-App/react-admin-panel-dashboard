@@ -41,6 +41,11 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/lodash@^4.14.168":
+  version "4.14.168"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.168.tgz#fe24632e79b7ade3f132891afff86caa5e5ce008"
+  integrity sha512-oVfRvqHV/V6D1yifJbVRU3TMp8OT6o6BG+U9MkwuJ3U8/CsDHvalRpsxBqivn71ztOFZBTfJMvETbqHiaNSj7Q==
+
 "@types/mime@^1":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-1.3.2.tgz#93e25bf9ee75fe0fd80b594bc4feb0e862111b5a"
@@ -857,6 +862,11 @@ once@^1.3.0:
   dependencies:
     wrappy "1"
 
+openid@0.5.x:
+  version "0.5.13"
+  resolved "https://registry.yarnpkg.com/openid/-/openid-0.5.13.tgz#1b8eb6ca8c7aee6dd6264b69dafb9ad7852c2a4d"
+  integrity sha1-G462yox67m3WJktp2vua14UsKk0=
+
 packet-reader@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/packet-reader/-/packet-reader-1.0.0.tgz#9238e5480dedabacfe1fe3f2771063f164157d74"
@@ -873,6 +883,44 @@ parseurl@~1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
   integrity sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==
+
+passport-google@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/passport-google/-/passport-google-0.3.0.tgz#c5b4b4162658892b37165b795a01ffd4c7e19fb7"
+  integrity sha1-xbS0FiZYiSs3Flt5WgH/1Mfhn7c=
+  dependencies:
+    passport-openid "0.3.x"
+    pkginfo "0.2.x"
+
+passport-openid@0.3.x:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/passport-openid/-/passport-openid-0.3.1.tgz#e64de04859fa51b6529480174122621e08fa22cb"
+  integrity sha1-5k3gSFn6UbZSlIAXQSJiHgj6Iss=
+  dependencies:
+    openid "0.5.x"
+    passport "~0.1.3"
+    pkginfo "0.2.x"
+
+passport-strategy@1.x.x:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/passport-strategy/-/passport-strategy-1.0.0.tgz#b5539aa8fc225a3d1ad179476ddf236b440f52e4"
+  integrity sha1-tVOaqPwiWj0a0XlHbd8ja0QPUuQ=
+
+passport@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/passport/-/passport-0.4.1.tgz#941446a21cb92fc688d97a0861c38ce9f738f270"
+  integrity sha512-IxXgZZs8d7uFSt3eqNjM9NQ3g3uQCW5avD8mRNoXV99Yig50vjuaez6dQK2qC0kVWPRTujxY0dWgGfT09adjYg==
+  dependencies:
+    passport-strategy "1.x.x"
+    pause "0.0.1"
+
+passport@~0.1.3:
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/passport/-/passport-0.1.18.tgz#c8264479dcb6414cadbb66752d12b37e0b6525a1"
+  integrity sha1-yCZEedy2QUytu2Z1LRKzfgtlJaE=
+  dependencies:
+    pause "0.0.1"
+    pkginfo "0.2.x"
 
 path-exists@^2.0.0:
   version "2.1.0"
@@ -904,6 +952,11 @@ path-type@^1.0.0:
     graceful-fs "^4.1.2"
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
+
+pause@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/pause/-/pause-0.0.1.tgz#1d408b3fdb76923b9543d96fb4c9dfd535d9cb5d"
+  integrity sha1-HUCLP9t2kjuVQ9lvtMnf1TXZy10=
 
 pg-connection-string@2.4.0:
   version "2.4.0"
@@ -982,6 +1035,11 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
+
+pkginfo@0.2.x:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/pkginfo/-/pkginfo-0.2.3.tgz#7239c42a5ef6c30b8f328439d9b9ff71042490f8"
+  integrity sha1-cjnEKl72wwuPMoQ52bn/cQQkkPg=
 
 postgres-array@~2.0.0:
   version "2.0.0"
