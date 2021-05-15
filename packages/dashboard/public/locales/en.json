@@ -1,0 +1,22 @@
+{
+  "alerts": {},
+  "navigations": {
+    "default": "Home Page",
+    "tableBuilder": "Table Builder",
+    "users": "Users",
+    "dashboard": "Dashboard"
+  },
+  "pages": {
+    "tableBuilder": {
+      "title": "Create A New Table",
+      "form": {
+        "tableName": "Table Name",
+        "description": "Description",
+        "columns": {
+          "information": "Table Columns List"
+        }
+      }
+    }
+  },
+  "warning": {}
+}

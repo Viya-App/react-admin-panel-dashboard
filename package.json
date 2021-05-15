@@ -1,0 +1,11 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "start": "lerna bootstrap;lerna run --parallel start"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1",
+    "typescript": "^4.2.4"
+  }
+}
